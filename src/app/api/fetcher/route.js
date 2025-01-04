@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 const loadDB=async()=>{
     await connectDB()
-    console.log('mogococ');
+   
     
    
 }

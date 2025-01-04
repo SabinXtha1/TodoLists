@@ -15,17 +15,31 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-800 to-black text-white">
-      <div className="bg-gray-900 text-white rounded-lg shadow-lg p-8 w-96">
-        <h1 className="text-2xl font-bold mb-4">Hello, Visitor!</h1>
-        <p className="mb-4 text-gray-400">You are not signed in.</p>
-        <button
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+    <div className="bg-gray-800 rounded-lg shadow-xl p-6 w-80 sm:w-96">
+      <h1 className="text-3xl font-extrabold mb-6 text-center text-white">
+        Welcome, Visitor!
+      </h1>
+      <p className="mb-6 text-center text-gray-400">
+        You are not signed in. Sign in to access your account.
+      </p>
+      <button
+        className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200"
+        onClick={() => signIn()}
+      >
+        Sign In
+      </button>
+      <div className="mt-4 text-center text-sm text-gray-500">
+        Don’t have an account?{" "}
+        <span
+          className="text-blue-400 hover:text-blue-500 cursor-pointer underline"
           onClick={() => signIn()}
         >
-          Sign in
-        </button>
+          Create one now.
+        </span>
       </div>
     </div>
+  </div>
+  
   );
 }

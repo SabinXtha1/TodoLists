@@ -6,6 +6,8 @@ import axios from 'axios';
 import Todos from './Todos';
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { FaInstagram,FaGithub,FaLinkedin } from "react-icons/fa";
+
 
 const TodoList = () => {
   const [tasks, settasks] = useState()
@@ -20,14 +22,10 @@ const TodoList = () => {
     })
     const dataGet = async ()=>{
       const res = await axios.post('/api',  {email:session.user.email})
-
-
-      console.log(res.data.todo);
       settasks(res.data.todo);
       setdatashow(true)
       
     }
-    console.log(tasks);
     
     useEffect(() => {
        dataGet()
@@ -36,7 +34,7 @@ const TodoList = () => {
       if(e.target.name=='delete'){
 
         try{
-          console.log(e.target.name);
+        
           
           const res = await axios.delete('/api',{
             params:{
@@ -68,8 +66,7 @@ const TodoList = () => {
 
     }
     const edit =async(ID,task,description)=>{
-      console.log(ID,task,description);
-      console.log(editData);
+    
       
       setformData({
         task:task,
@@ -114,7 +111,7 @@ const TodoList = () => {
 
                  console.log(formData);
                  const response = await axios.post('/api/fetcher',formData)
-                 console.log(response);
+              
                  
                  setformData({
                   task:'',
@@ -139,6 +136,11 @@ const TodoList = () => {
             Action Plan
            </p>
           </h1>
+          <div className='flex gap-2'><a href='https://github.com/SabinXtha1' target='_blank'  className='bg-red-500 p-2 rounded-full hover:bg-red-700'>  
+<FaGithub   className='text-2xl  ' /></a>
+<a href='https://www.instagram.com/xtha__sabin/' target='_blank'  className='bg-red-500 p-2 rounded-full hover:bg-red-700'>  <FaInstagram   className='text-2xl  '/></a>
+<a href='https://www.linkedin.com/in/sabin-nayaju-72438a204/'  target='_blank' className='bg-red-500 p-2 rounded-full hover:bg-red-700' >  <FaLinkedin   className='text-2xl  '/></a>
+          </div>
           <button onClick={()=>signOut()} className='bg-red-500 px-4 py-2 rounded-full m-1 hover:bg-red-700 text-white ' >
             SignOut
           </button>
