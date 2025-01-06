@@ -21,7 +21,11 @@ const TodoList = () => {
       username:session.user.name
     })
     const dataGet = async ()=>{
-      const res = await axios.post('/api',  {email:session.user.email})
+  const res = await axios('/api',{
+    params:{
+      email:session.user.email
+    }
+  } )
       settasks(res.data.todo);
       setdatashow(true)
       

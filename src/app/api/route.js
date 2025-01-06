@@ -1,17 +1,7 @@
 import { NextResponse } from "next/server";
 import TodoModel from "../lib/models/model";
 
-export async function POST(request) {
-    const {email} = await request.json()
-  
-  const data = await  TodoModel.find({email
-    
-  })
 
-   return NextResponse.json({
-        todo:data
-    })
-}
 export async function DELETE(request){
   const mongoId = await request.nextUrl.searchParams.get('mongoID')
   
@@ -20,6 +10,20 @@ export async function DELETE(request){
   return NextResponse.json({
       msg:'Todo Has been Delete'
   })
+}
+export async function GET(request) {
+  const {searchParams}= new URL(request.url)
+  const email = searchParams.get('email')
+  console.log(email);
+  
+  const data = await  TodoModel.find({email
+    
+  })
+
+   return NextResponse.json({
+        todo:data
+    })
+  
 }
 export async function PUT(request){
     const mongoId = await request.nextUrl.searchParams.get('mongoID')
