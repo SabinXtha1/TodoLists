@@ -2,6 +2,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import TodoList from "./TodoList";
 
+
 export default function HomePage() {
   const { data: session } = useSession();
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <p className="mb-6 text-center text-gray-400">
         You are not signed in. Sign in to access your account.
       </p>
+   
       <button
         className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200"
         onClick={() => signIn()}

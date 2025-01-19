@@ -10,6 +10,9 @@ import { FaInstagram,FaGithub,FaLinkedin } from "react-icons/fa";
 
 
 const TodoList = () => {
+  useEffect(() => {
+     dataGet()
+  },[] )
   const [tasks, settasks] = useState()
   const [datashow, setdatashow] = useState(false)
   const [editData, seteditData] = useState(false)
@@ -30,10 +33,8 @@ const TodoList = () => {
       setdatashow(true)
       
     }
+    console.log(tasks);
     
-    useEffect(() => {
-       dataGet()
-    },[] )
     const deleteTodo=async (ID,e)=>{
       if(e.target.name=='delete'){
 
@@ -181,6 +182,8 @@ const TodoList = () => {
   </button>)
   }
 </div>
+
+
 <div className='m-2 overflow-scroll'>
 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-10 rounded-">
         <thead className="text-xs text-white uppercase bg-orange-600 ">
@@ -219,6 +222,7 @@ const TodoList = () => {
 </tbody>
 </table>
 </div>
+
 
     </div>
   )

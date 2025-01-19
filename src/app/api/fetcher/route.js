@@ -11,15 +11,6 @@ const loadDB=async()=>{
 }
 loadDB()
 
-export async function GET(request){
-   
-  
-  const data = await TodoModel.find({})
- return NextResponse.json({
-    data: data
- })
-
-}
 
 export async function POST(request){
     const {task,description,email,username} = await request.json()
